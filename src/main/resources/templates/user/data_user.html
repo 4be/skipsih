@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <!--     Page Heading -->
+    <!--    <h1 class="h3 mb-2 text-gray-800" th:text="${title}"></h1>-->
+    <!--    <br>-->
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="sihapus">
+        <strong>Sukses !</strong> User berhasil Dihapus.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="siubah">
+        <strong>Sukses !</strong> User berhasil Diubah.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <br>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-table"></i> Tabel Data User</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped hover row-border compact stripe order-column"
+                       id="dataUser" cellspacing="0" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Alamat</th>
+                        <th>Divisi</th>
+                        <th>NIK Manager</th>
+                        <th>Role</th>
+                        <th>Ubah</th>
+                        <th>Hapus</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+<th:block layout:fragment="custom_script">
+    <script src="/js/user.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+</th:block>
+</body>
+</html>

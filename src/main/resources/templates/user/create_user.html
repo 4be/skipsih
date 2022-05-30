@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout.html}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <!-- Page Heading -->
+    <h5 class="h3 mb-2 text-gray-800" th:text="${title}"></h5>
+    <br>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="sisukses">
+        <strong>Sukses !</strong> User berhasil ditambahkan.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="sigagal">
+        <strong>Gagal !</strong> Nik / Email sudah digunakan.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <br>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-file-csv"></i> Tambah User (Upload Data CSV)
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a href="/img/Create-User-Template.csv" download="Create-User-Template.csv" target="_blank"
+                       class="btn btn-success">
+                        <i class="fas fa-file-download"></i> Download Template
+                    </a>
+                </div>
+            </div>
+            <br />
+            <form method="POST" enctype="multipart/form-data" id="my-form">
+                <input type="file" name="file" accept=".csv"><br/><br/>
+                <input type="submit" value="Upload" id="btnSubmit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user-plus"></i> Tambah User (Isi Form)</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="nikKaryawan">NIK</label>
+                                <input type="text" class="form-control" id="nikKaryawan"
+                                       placeholder="Masukkan NIK"
+                                       name="nikKaryawan">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="namaKaryawan">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="namaKaryawan"
+                                       placeholder="Masukkan Nama"
+                                       name="namaKaryawan">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="emailKaryawan">Email</label>
+                                <input type="email" class="form-control" id="emailKaryawan"
+                                       placeholder="Masukkan Email"
+                                       name="emailKaryawan">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="nikManager">NIK Manager</label>
+                                <input type="text" class="form-control" id="nikManager"
+                                       placeholder="Masukkan NIK"
+                                       name="nikManager">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="ttlKaryawan">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="ttlKaryawan"
+                                       placeholder="Masukkan Tanggal Lahir"
+                                       name="ttlKaryawan">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="alamatKaryawan">Alamat</label>
+                                <input type="text" class="form-control" id="alamatKaryawan"
+                                       placeholder="Masukkan Alamat"
+                                       name="alamatKaryawan">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="divisiKaryawan">Divisi</label>
+                                <input type="text" class="form-control" id="divisiKaryawan"
+                                       placeholder="Masukkan Divisi"
+                                       name="divisiKaryawan">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="roleKaryawan">Role</label>
+                                <br>
+                                <select class="form-select form-select-sm"
+                                        name="roleKaryawan" id="roleKaryawan">
+                                    <option value="EMPLOYEE" selected>Employee</option>
+                                    <option value="MANAGER">Manager</option>
+                                    <option value="HCM">HCM</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</th:block>
+<th:block layout:fragment="custom_script">
+    <script src="/js/createuser.js"></script>
+</th:block>
+</body>
+</html>

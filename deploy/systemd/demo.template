@@ -1,0 +1,14 @@
+[Unit]
+Description=Aplikasi Demo
+After=syslog.target
+
+[Service]
+User=jordykristia
+WorkingDirectory=/opt/sinarmas/demo
+ExecStart=java -jar /opt/sinarmas/demo/demo.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

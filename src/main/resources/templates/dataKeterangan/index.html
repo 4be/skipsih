@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-table"></i> Tabel Data Keterangan</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="row">
+                    <div class="col-lg-2">Tanggal Awal</div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <div class="input-group" id="minDatePicker">
+                                <input type="text" id="min" placeholder="YYYY-MM-DD"/>&nbsp;
+                                <i class="fas fa-calendar-alt fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="btn btn-warning" id="btnClear"><i class="fas fa-minus-square"></i> Clear</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">Tanggal Akhir</div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <div class="input-group" id="maxDatePicker">
+                                <input type="text" id="max" placeholder="YYYY-MM-DD" />&nbsp;
+                                <i class="fas fa-calendar-alt fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-primary" id="btnToday"><i class="fas fa-calendar-day"></i> Keterangan Sakit Hari Ini</button>
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped hover row-border compact stripe order-column" id="dataKeteranganTable" cellspacing="0" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Tanggal Mulai</th>
+                        <th>Tanggal Selesai</th>
+                        <th>Deskripsi</th>
+                        <th>Berkas Pendukung</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</th:block>
+<th:block layout:fragment="custom_script">
+    <script type="text/javascript" src="/js/dataKeterangan.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+</th:block>
+</body>
+</html>

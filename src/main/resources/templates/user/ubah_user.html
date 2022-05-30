@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout.html}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <!-- Page Heading -->
+    <h5 class="h3 mb-2 text-gray-800" th:text="${title}"></h5>
+    <br>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="sisukses">
+        <strong>Sukses !</strong> User berhasil ditambahkan.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="sigagal">
+        <strong>Gagal !</strong> Nik / Email sudah digunakan.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <br>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="nikKaryawan">NIK</label>
+                                <input type="text" class="form-control" id="nikKaryawan"
+                                       placeholder="Masukkan NIK"
+                                       name="nikKaryawan"
+                                       th:value="${user.nik}"
+                                       readonly>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="namaKaryawan">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="namaKaryawan"
+                                       placeholder="Masukkan Nama"
+                                       name="namaKaryawan"
+                                       th:value="${user.nama}">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="emailKaryawan">Email</label>
+                                <input type="email" class="form-control" id="emailKaryawan"
+                                       placeholder="Masukkan Email"
+                                       name="emailKaryawan"
+                                       th:value="${user.email}">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="nikManager">NIK Manager</label>
+                                <input type="text" class="form-control" id="nikManager"
+                                       placeholder="Masukkan NIK"
+                                       name="nikManager"
+                                       th:value="${user.nikManager}">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label for="ttlKaryawan">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="ttlKaryawan"
+                                       placeholder="Masukkan Tanggal Lahir"
+                                       name="ttlKaryawan"
+                                       th:value="${user.tanggalLahir}">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="alamatKaryawan">Alamat</label>
+                                <input type="text" class="form-control" id="alamatKaryawan"
+                                       placeholder="Masukkan Alamat"
+                                       name="alamatKaryawan"
+                                       th:value="${user.alamat}">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="divisiKaryawan">Divisi</label>
+                                <input type="text" class="form-control" id="divisiKaryawan"
+                                       placeholder="Masukkan Divisi"
+                                       name="divisiKaryawan"
+                                       th:value="${user.divisi}">
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                        </td>
+                        <td style="width: 100px"></td>
+                        <td>
+                            <div class="form-group">
+                                <label for="roleKaryawan">Role</label>
+                                <br>
+                                <select class="form-select form-select-sm"
+                                        name="roleKaryawan" id="roleKaryawan">
+                                    <option value="EMPLOYEE" selected>Employee</option>
+                                    <option value="MANAGER">Manager</option>
+                                    <option value="HCM">HCM</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</th:block>
+<th:block layout:fragment="custom_script">
+    <script src="/js/updateuser.js"></script>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,39 @@
+# Berkas konfigurasi EditorConfig. Digunakan untuk menjamin keseragaman
+# perilaku text editor/IDE yang digunakan selama pengembangan. Harap
+# pasang extension/plugin EditorConfig di text editor/IDE favorit
+# masing-masing untuk dapat menjalankan EditorConfig.
+
+## Penanda bahwa berkas berikut adalah berkas paling ujung pada hirarki
+## struktur berkas codebase.
+root = true
+
+## Bagian konfigurasi default yang berlaku untuk semua jenis berkas.
+## Makna masing-masing property sudah cukup jelas.
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+## Bagian konfigurasi spesifik ke jenis-jenis berkas tertentu.
+
+### Markdown. Biasa digunakan untuk menuliskan dokumentasi secara langsung
+### di dalam codebase.
+[*.md]
+trim_trailing_whitespace = false
+
+### XML. Biasa digunakan oleh konfigurasi Maven dan konfigurasi Spring
+### apabila menggunakan pendekatan konfigurasi menggunakan berkas XML.
+[*.xml]
+indent_style = tab
+
+### Berkas-berkas terkait shell scripting di sistem operasi Windows.
+[*.{cmd,bat,ps1}]
+end_of_line = crlf
+
+### YAML. Biasa digunakan sebagai konfigurasi berbagai macam tools.
+[*.yml]
+indent_size = 2

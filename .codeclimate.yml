@@ -1,0 +1,17 @@
+---
+version: '2'
+plugins:
+  editorconfig:
+    enabled: true
+    channel: beta
+    config:
+      editorconfig: .editorconfig
+  sonar-java:
+    enabled: true
+    config:
+      sonar.java.source: 11
+      tests_pattern:
+        - src/test/**
+exclude_paths:
+  - .mvn/
+  - target/

@@ -1,0 +1,40 @@
+/*//thead > tr {*/
+/*//    text-align: center;*/
+/*//}*/
+
+/*//tbody > tr {*/
+/*//    text-align: center;*/
+/*//}*/
+
+.bg_general {
+	/*background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);*/
+	background: linear-gradient(90deg, #87CEFA, #F5FFFA,#ADD8E6, #F8F8FF);
+	background-size: 400% 400%;
+	animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#accordionSidebar {
+    background-color: #6E293A;
+    background-image: linear-gradient(180deg,#FB4570 10%,#6E293A 100%);
+    background-size: cover;
+}
+
+.tbl-center {
+    text-align: center;
+}
+
+.finger-pointer {
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  # -------------------
+  # PROMETHEUS
+  # -------------------
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - $PWD/prometheus.yml:/prometheus.yml
+    environment:
+      TZ: Asia/Jakarta
+    networks:
+      - c0deslinger
+  # -------------------
+  # GRAFANA
+  # -------------------
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    ports:
+      - 9100:3000
+    environment:
+      TZ: Asia/Jakarta
+    networks:
+      - c0deslinger
+networks:
+  c0deslinger:
+    name: c0deslinger
